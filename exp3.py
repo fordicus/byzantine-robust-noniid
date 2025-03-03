@@ -9,7 +9,7 @@ r"""Exp 3:
 - Varies, e.g.,:
 	- momentum=0, 0.9
 	- ATK = LF, BF, Mimic, IPM, ALIE
-	- 5 Aggregators: KRUM, CM, RFA, CClip, and A-CClip
+	- 5 Aggregators: KRUM, CM, RFA, CClip, and A-CC
 	- Bucketing or not
 """
 
@@ -241,7 +241,7 @@ else:
 							# for attack in ["ALIE"]:
 								yield agg, attack, momentum, bucketing, seed
 								
-		elif switchNo == 1:		# A-CClip vs. ALIE 
+		elif switchNo == 1:		# A-CC vs. ALIE 
 								# It can also be used for personalization.
 			
 			for agg in ["byro"]:
@@ -251,7 +251,7 @@ else:
 							for attack in ["ALIE"]:
 								yield agg, attack, momentum, bucketing, seed
 								
-		elif switchNo == 2:		# Dynamic Byzantine: A-CClip vs. CClip
+		elif switchNo == 2:		# Dynamic Byzantine: A-CC vs. CClip
 			
 			for agg in ["byro", "cp"]:
 				for seed in [0, 1, 2]:
@@ -260,7 +260,7 @@ else:
 							for attack in ["ALIE"]:
 								yield agg, attack, momentum, bucketing, seed
 								
-		elif switchNo == 1:		# A-CClip vs. ALIE 
+		elif switchNo == 1:		# A-CC vs. ALIE 
 								# It can also be used for personalization.
 			
 			for agg in ["byro"]:
@@ -304,7 +304,7 @@ else:
 			for v in values:
 				
 				if	 agg == "cp":	str_agg = "CClip"
-				elif agg == "byro": str_agg = "A-CClip"
+				elif agg == "byro": str_agg = "A-CC"
 				else:				str_agg = agg.upper()
 				
 				results.append(
@@ -408,7 +408,7 @@ else:
 				x="Iterations",
 				y="Accuracy (%)",
 				style=r"$\beta$",
-				col="AGG",		# Columns for A-CClip and CClip
+				col="AGG",		# Columns for A-CC and CClip
 				row=None,		# No row distinction (horizontally stacked)
 				hue=r"$\beta$",	# Use momentum (0.0, 0.9) for different line styles
 				height=2.5,		# Adjust height
@@ -418,7 +418,7 @@ else:
 				dashes={0.0: "", 0.9: (4, 2)},			# Solid for 0.0, dashed for 0.9
 			)
 
-			# Set column titles to just "A-CClip" and "CClip"
+			# Set column titles to just "A-CC" and "CClip"
 			g.set_titles(col_template="{col_name}")
 
 			# Adjust axis labels

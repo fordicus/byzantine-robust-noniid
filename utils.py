@@ -142,7 +142,7 @@ def get_args():
 	)
 	
 	#======================================================================================
-	# adaptive centered clipping
+	# a-cc
 	#......................................................................................
 	
 	parser.add_argument("--gVonly", action = "store_true", default = False,
@@ -1127,5 +1127,5 @@ def main(args, LOG_DIR, EPOCHS, MAX_BATCHES_PER_EPOCH, target_classes = None):
 			
 			trainer.debug_logger.info(
 				f">> average descent iterations per mini-batch "
-				f"for adaptive centered clipping: {round(adipmb):d}\n"
+				f"for a-cc: {round(adipmb):d}\n"
 			)

@@ -12,7 +12,7 @@ from .base import _BaseAsyncAggregator
 debug_logger = logging.getLogger("debug")
 
 #==========================================================================================
-# Omega: backtracking-friendly number, previously used for initial exploration of CClip
+# Omega: backtracking-friendly number, previously used for initial exploration of A-CC
 #------------------------------------------------------------------------------------------
 
 class Omega:
@@ -56,8 +56,7 @@ def format_tensor_to_print(
 	return f"[{', '.join(formatted_values)}]"
 
 #==========================================================================================
-# ByRoAdapter: Byzantine-robust Adapter with Trainable Clipping Radii,
-# which is also called A-CClip (Adaptive Centered Clipping)
+# ByRoAdapter (A-CC)
 #------------------------------------------------------------------------------------------
 
 class ByRoAdapter(_BaseAggregator):
@@ -142,15 +141,15 @@ class ByRoAdapter(_BaseAggregator):
 		if self.angular_term:
 			
 			print(
-				f"\n>> Adaptive Centered Clipping maximizes "
-				f"angular similarity with importance factor {self.angular_weight}"
+				f"\n>> A-CC maximizes angular similarity with "
+				f"importance factor {self.angular_weight}"
 			)
 			
 		if self.l2_square_term:
 			
 			print(
-				f">> Adaptive Centered Clipping has L2-square regularization "
-				f"with importance factor {self.l2_square_weight}"
+				f">> A-CC has L2-square regularization with "
+				f"importance factor {self.l2_square_weight}"
 			)
 			
 		if self.angular_term or self.angular_term: print(f"")
